@@ -5,7 +5,7 @@ body{
 }
 .app-cont{
 margin: auto;
-width:70%;
+width:80%;
 margin-top: 2%;
 box-shadow: 5px 5px 8px 5px #888888;
 padding: 5%;
@@ -38,9 +38,6 @@ border-top-right-radius: 5%;
     margin-bottom:2%;
     border-radius: 2%;
     border-bottom: solid;
-
-
-
   }
 
   .list-group >li:hover{
