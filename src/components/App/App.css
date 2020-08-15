@@ -1,0 +1,27 @@
+
+
+.app-cont{
+margin: auto;
+width:60%;
+margin-top: 2%;
+}
+.list-group{
+
+  margin-top: 10%;
+}
+.navbar{
+  margin: auto;
+  width: 80%;
+  border-radius: 5%;
+  box-shadow: 5px 10px 8px 10px #888888;
+  }
+  
+  .nav-link{
+      margin-right: 8%;
+  }
+  .spinCont,.Error{
+    margin:auto;
+    margin-top: 5%;
+    width: 20%;
+
+  }
