@@ -5,7 +5,7 @@ export const dispatchDataStorisId = (dataUrl) => {
   return function (dispatch) {
     dispatch({ type: GET_DATA_PENDING })
     getDataStoriesId(dataUrl, (res) => {
-      dispatch({ type: GET_DATA_SUCCESS_STORY, Data:res.data.slice(0,22)
+      dispatch({ type: GET_DATA_SUCCESS_STORY, Data:res.data
       })
       return res.data
     }, (res) => {
