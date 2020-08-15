@@ -1,9 +1,17 @@
 
+body{
 
+  background-color:lightblue;
+}
 .app-cont{
 margin: auto;
 width:70%;
 margin-top: 2%;
+box-shadow: 5px 5px 8px 5px #888888;
+padding: 5%;
+background-color: white;
+border-radius: 1%;
+
 }
 .list-group{
   margin-top: 10%;
@@ -12,11 +20,13 @@ margin-top: 2%;
   margin: auto;
   width: 80%;
   border-radius: 5%;
-  box-shadow: 5px 10px 8px 10px #888888;
+  box-shadow: 5px 5px 8px 5px #888888;
+
   }
   
   .nav-link{
       margin-right: 8%;
+      
   }
   .spinCont,.Error{
     margin:auto;
@@ -27,4 +37,10 @@ margin-top: 2%;
   .list-group >li{
     margin-bottom:2%;
     border-radius: 2%;
+    border-bottom: solid;
+
+  }
+
+  .list-group >li:hover{
+    transform: scale(1.05)
   }
