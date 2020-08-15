@@ -1,14 +1,15 @@
 import axios from 'axios';
-export const getDataApi=(dataUrl,callBackSuccFun,callBackFailFun)=>{
-    const storayData=[];
+export const getDataStoriesId=(dataUrl,callBackSuccFunStories,callBackSuccFunStory,callBackFailFun)=>{
     axios.get(dataUrl)
-    .then((res)=>{return res.data})
-    .then((res)=>{
-        Promise.all(res.slice(0,10).map((url) =>
-        axios(`https://hacker-news.firebaseio.com/v0/item/${url}.json`).then((res)=>{
-            storayData.push(res.data);
-            return (storayData.length===10) &&storayData;          
-        }).then(callBackSuccFun)))
-    }).catch(callBackFailFun)
+    .then(callBackSuccFunStories)
+    .then((res)=>GetStories(res,callBackSuccFunStory,callBackFailFun))
+    .catch(callBackFailFun)
 }
 
+
+export const GetStories=(storiesArr,callBackSuccFun,callBackFailFun,from=0,to=10)=>{
+    axios.all(storiesArr.slice(from,to).map((url) => axios(`https://hacker-news.firebaseio.com/v0/item/${url}.json`)
+    .then(res=>res.data)))
+    .then(callBackSuccFun)
+    .catch(callBackFailFun)
+}

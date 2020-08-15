@@ -1,25 +1,27 @@
-// import { GET_USER_STATUS } from "./types";
-import {getDataApi} from '../Api'
-import {GET_DATA_PENDING,GET_DATA_ERROR,GET_DATA_SUCCESS} from './types';
+import {getDataStoriesId,GetStories} from '../Api'
+import {GET_DATA_PENDING,GET_DATA_ERROR,GET_DATA_SUCCESS,GET_DATA_SUCCESS_STORY} from './types';
 
-export const dispatchData=(dataUrl)=> {
+export const dispatchDataStorisId=(dataUrl)=> {
   return function (dispatch) {
     dispatch({type: GET_DATA_PENDING})
-    getDataApi(dataUrl ,(res)=>{
-    
-     res&& dispatch({type: GET_DATA_SUCCESS,Data:res})
+    getDataStoriesId(dataUrl ,(res)=>{
+      dispatch({type: GET_DATA_SUCCESS_STORY,Data:res.data})
+      return res.data
+    },(res)=>{
+     dispatch({type: GET_DATA_SUCCESS,Data:res})
     },(error)=>{
       dispatch({type: GET_DATA_ERROR})
     })
 }}
 
-export const dispatchStory=(dataUrl)=> {
-  return function (dispatch) {
-    dispatch({type: GET_DATA_PENDING})
-    getDataApi(dataUrl ,(res)=>{
-      dispatch({type: GET_DATA_SUCCESS,Data:res})
+export const dispatchDataStoris =( )=>{
+  return function (dispatch, getState)  {
+    const {dataId,Data}=getState();
+    GetStories(dataId,(res)=>{
+      dispatch({type: GET_DATA_SUCCESS,Data:[...Data,...res]});
     },(error)=>{
-      dispatch({type: GET_DATA_ERROR,error})
-    })
-}}
+      dispatch({type: GET_DATA_ERROR})
+    },Data.length,Data.length+10)
+  }
 
+}

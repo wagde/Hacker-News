@@ -2,11 +2,10 @@
 
 .app-cont{
 margin: auto;
-width:60%;
+width:70%;
 margin-top: 2%;
 }
 .list-group{
-
   margin-top: 10%;
 }
 .navbar{
@@ -24,4 +23,8 @@ margin-top: 2%;
     margin-top: 5%;
     width: 20%;
 
+  }
+  .list-group >li{
+    margin-bottom:2%;
+    border-radius: 2%;
   }
